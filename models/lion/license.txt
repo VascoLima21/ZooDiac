@@ -1,0 +1,11 @@
+Model Information:
+* title:	Lion
+* source:	https://sketchfab.com/3d-models/lion-f94d39b60c5846148b63b523c8e85ed4
+* author:	daniel.jibi (https://sketchfab.com/daniel.jibi)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Lion" (https://sketchfab.com/3d-models/lion-f94d39b60c5846148b63b523c8e85ed4) by daniel.jibi (https://sketchfab.com/daniel.jibi) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

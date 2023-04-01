@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="animalSounds.js"></script>
+    <title>Space</title>
+</head>
+
+<body>
+    <a-scene>
+        <assets>
+            <img id="sky" src="/img/sky.jpg">
+            <a-asset-item id="lamp" src="/models/lamp/scene.gltf"></a-asset-item>
+            <a-asset-item id="lion" src="/models/lion/scene.gltf"></a-asset-item>
+            <a-asset-item id="ram" src="/models/ram/scene.gltf"></a-asset-item>
+            <!-- <a-asset-item id="ram" src="/models/ram/scene.gltf"></a-asset-item>
+            <a-asset-item id="ram" src="/models/ram/scene.gltf"></a-asset-item>  -->
+
+        </assets>
+
+        <!--Camera-->
+        <a-entity position="0 0 0" camera="" wasd-controls="acceleration: 10" look-controls="" rotation=""
+            data-aframe-inspector-original-camera="">
+            <a-cursor position="0 0 -0.05" scale="0.04 0.04 1" material="" raycaster="far: 1; objects: .clickable"
+                cursor="" geometry="">
+            </a-cursor>
+            <!--fuse="true" fusetimeout="2000" faz com que após 2 segundos a olhar para um objeto simula o click-->
+        </a-entity>
+
+        <!--Background Music-->
+
+        <a-sound src="sound\01. Timber Hearth.mp3" autoplay="true" loop="true" volume="0.2" position="0 30 0"></a-sound>
+
+        <!--Aries/Ram-->
+        <a-entity position="4 -1 5">
+            <a-entity class="clickable" gltf-model="#ram" scale="1 1 1"></a-entity>
+            <a-sound src="sound\sheep-122256.mp3" autoplay="true"  loop="true" volume="0.025"></a-sound>
+        </a-entity>
+
+
+        <!--Leo/Lion-->
+
+        <a-entity position="0 -1 1">
+            <a-entity class="clickable" gltf-model="#lion" scale="1 1 1"></a-entity>
+            <a-sound src="sound\cat-purring-and-meow-5928.mp3" autoplay="true" loop="true" volume="0.05"></a-sound>
+        </a-entity>
+
+        <!-- Space Rotation -->
+        <a-sky rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; easing: linear; dur: 500000"
+            src="#sky"></a-sky>
+
+    </a-scene>
+
+</body>
+
+</html>

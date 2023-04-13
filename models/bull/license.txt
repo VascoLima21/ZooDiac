@@ -1,0 +1,11 @@
+Model Information:
+* title:	Bull-ver2
+* source:	https://sketchfab.com/3d-models/bull-ver2-e4cb7bcbf42f4959ab1799efd0e9390b
+* author:	Pixel (https://sketchfab.com/stefan.lengyel1)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Bull-ver2" (https://sketchfab.com/3d-models/bull-ver2-e4cb7bcbf42f4959ab1799efd0e9390b) by Pixel (https://sketchfab.com/stefan.lengyel1) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

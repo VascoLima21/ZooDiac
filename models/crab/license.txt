@@ -1,0 +1,11 @@
+Model Information:
+* title:	Blue crab
+* source:	https://sketchfab.com/3d-models/blue-crab-084c87634fab4f2bbc3a5866789014e3
+* author:	Julian Johnson-Mortimer (https://sketchfab.com/FreddyFoxFreddy)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Blue crab" (https://sketchfab.com/3d-models/blue-crab-084c87634fab4f2bbc3a5866789014e3) by Julian Johnson-Mortimer (https://sketchfab.com/FreddyFoxFreddy) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

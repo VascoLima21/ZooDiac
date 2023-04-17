@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="animalSounds.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
     <title>Space</title>
 </head>
 
@@ -19,64 +19,109 @@
             <a-asset-item id="crab" src="/models/crab/scene.gltf"></a-asset-item>
             <a-asset-item id="scorpion" src="/models/scorpion/scene.gltf"></a-asset-item>
             <a-asset-item id="bull" src="/models/bull/scene.gltf"></a-asset-item>
-            <a-asset-item id="dome" src="/models/dome/scene.gltf"></a-asset-item>
             <a-asset-item id="ship" src="/models/spaceShip/scene.gltf"></a-asset-item>
+            <a-asset-item id="mars" src="/models/mars/scene.gltf"></a-asset-item>
+            <a-asset-item id="campfire" src="/models/campfire/scene.gltf"></a-asset-item>
+            <a-asset-item id="tent" src="/models/tent/scene.gltf"></a-asset-item>
+            <audio id="lionMeow" src="sound/cat-purring-and-meow-5928.mp3"></audio>
+            <audio id="ramSound" src="sound\sheep-122256.mp3"></audio>
+            <audio id="crabSound" src="sound\mrKrabsLaugh.MP3"></audio>
+            <audio id="taurusSound" src="sound\bull(fromnoisetosound.com).mp3"></audio>
+            <audio id="scorpionSound" src="sound\Get over here Sound Effect.mp3"></audio>
         </assets>
 
-        <!--Camera-->
-        <a-entity position="0 0 0" camera="" wasd-controls="acceleration: 15" look-controls="" rotation=""
-            data-aframe-inspector-original-camera="">
-            <a-cursor position="0 0 -0.02" scale="0.04 0.04 1" material="color:white" raycaster="far: 1; objects: .clickable"
-                >
+        <!--Camera and Cursor-->
+        <a-entity position="0 1 0" camera="" cursor="fuse: true; fuseTimeout: 3000;" wasd-controls="acceleration: 30"
+            look-controls="" rotation="" data-aframe-inspector-original-camera="">
+            <a-cursor position="0 0 -0.03" scale="0.02 0.02 1" material="color:white"
+                raycaster="far: 5; objects: .clickable">
             </a-cursor>
-            <!--fuse="true" fusetimeout="2000" faz com que após 2 segundos a olhar para um objeto simula o click-->
         </a-entity>
+        <!--fuse="true" fusetimeout="2000" faz com que após 2 segundos a olhar para um objeto simula o click-->
 
         <!--Background Music-->
 
-        <a-sound src="sound\01. Timber Hearth.mp3" autoplay="true" loop="true" volume="0.2" position="0 30 0"></a-sound>
+        <!-- <a-entity position="0 30 0">
+            <a-sound src="sound\01. Timber Hearth.mp3" autoplay="true" loop="true" volume="0.2"></a-sound>
+        </a-entity> -->
 
-        <!--Starting Observatory-->
+        <!--Starting Point in Mars Ground-->
 
-        <a-entity position="-1 -1 -1">
-            <a-entity gltf-model="#dome" scale="6 6 6"></a-entity>
-            <a-sound src="sound\sheep-122256.mp3" autoplay="true" loop="true" volume="0.025"></a-sound>
+        <a-entity position="0 0 0">
+            <a-entity gltf-model="#mars" scale="2 2 2"></a-entity>
+        </a-entity>
+
+        <!--Campfire for Decoration and Scenery Setting-->
+
+        <a-entity position="46.280 -3.2 30.234">
+            <a-entity gltf-model="#campfire" scale="2 2 2"></a-entity>
+        </a-entity>
+
+        <!--Tent-->
+
+        <a-entity position="53.43636 -0.8 16.52108" rotation="0 180 0">
+            <a-entity gltf-model="/models/tent/scene.gltf" scale="4 4 4"></a-entity>
+        </a-entity>
+
+        <!--SpaceShip for Decoration-->
+
+        <a-entity position="23.69001 -2.53013 36.58405" rotation="0 -130 0">
+            <a-light type="point" position="-2.817 13.239 -0.123" light=""></a-light>
+            <a-entity gltf-model="/models/spaceShip/scene.gltf" scale="2.3 2.3 2.3" rotation="0 -128.4 0"></a-entity>
         </a-entity>
 
         <!--Aries/Ram-->
 
-        <!-- <a-entity position="4 -1 5">
-            <a-entity class="clickable" gltf-model="#ram" scale="4 4 4"></a-entity>
-            <a-sound src="sound\sheep-122256.mp3" autoplay="true" loop="true" volume="0.025"></a-sound>
-        </a-entity> -->
+        <a-entity position="-85.34344 25.61791 5.07036" id="ramEvent" class="clickable"
+            gltf-model="/models/ram/scene.gltf" scale="40 40 40" visible="false"
+            sound="src: sound\sheep-122256.mp3; volume: 9" rotation="0 90 0">
+        </a-entity>
+
+        <!--Aries Constellation-->
+
+       
 
         <!--Scorpius/Scorpion-->
 
-        <!-- <a-entity position="8 -1 5">
-            <a-entity class="clickable" gltf-model="#scorpion" scale="0.003 0.003 0.003"></a-entity>
-            <a-sound src="sound\sheep-122256.mp3" autoplay="true" loop="true" volume="0.025"></a-sound>
-        </a-entity> -->
+        <a-entity position="32.70144 20.57451 -60.58601" id="scorpiusEvent" class="clickable"
+            gltf-model="/models/scorpion/scene.gltf" scale="0.02 0.02 0.02" visible="false"
+            sound="src: sound\Get over here Sound Effect.mp3; volume: 7">
+        </a-entity>
+
+        <!--Scorpius Constellation-->
+       
 
         <!--Cancer/Crab-->
 
-        <!-- <a-entity position="16 -1 5">
-            <a-entity class="clickable" gltf-model="#crab" scale="0.05 0.05 0.05"></a-entity>
-            <a-sound src="sound\sheep-122256.mp3" autoplay="true"  loop="true" volume="0.025"></a-sound>
-        </a-entity> -->
+        <a-entity position="-34.04895 13.70578 -60.3801" id="cancerEvent" class="clickable"
+            gltf-model="/models/crab/scene.gltf" scale="0.05 0.05 0.05" visible="false"
+            sound="src: sound\mrKrabsLaugh.MP3; volume: 14">
+        </a-entity>
+
+        <!--Cancer Constellation-->
+
+        
 
         <!--Leo/Lion-->
+        <a-entity class="clickable" position="-25.05064 10 65.92585" id="lionEvent" gltf-model="/models/lion/scene.gltf"
+            scale="0.5 0.5 0.5" visible="false" sound="src: sound\cat-purring-and-meow-5928.mp3; volume: 15"
+            rotation="0 140 0">
 
-        <!-- <a-entity position="0 -1 1">
-            <a-entity class="clickable" gltf-model="#lion" scale="3 3 3"></a-entity>
-            <a-sound src="sound\cat-purring-and-meow-5928.mp3" autoplay="true" loop="true" volume="0.05"></a-sound>
-        </a-entity> -->
+        </a-entity>
+
+        <!--Leo Constellation-->
+
 
         <!--Taurus/Bull-->
 
-        <!-- <a-entity position="32 -1 1">
-            <a-entity class="clickable" gltf-model="#bull" scale="3 3 3"></a-entity>
-            <a-sound src="sound\cat-purring-and-meow-5928.mp3" autoplay="true" loop="true" volume="0.05"></a-sound>
-        </a-entity> -->
+        <a-entity id="taurusEvent" position="74.6643 31.5587 2.2845" class="clickable"
+            gltf-model="/models/bull/scene.gltf" scale="12 12 12" visible="false"
+            sound="src: sound\Red Bull Gives You Wiings - Drink ! Notification.mp3; volume:4">
+        </a-entity>
+
+        <!--Taurus Constellation-->
+
+       
 
         <a-light color="white" type="point" position="0 10 0" intensity="3"></a-light>
 
@@ -88,5 +133,6 @@
     </a-scene>
 
 </body>
+<script src="animalSounds.js"></script>
 
 </html>

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Tent
+* source:	https://sketchfab.com/3d-models/tent-f6fef44f1e11487e8aec68123042cf03
+* author:	alexxx_xarchenko (https://sketchfab.com/alexxx_xarchenko)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Tent" (https://sketchfab.com/3d-models/tent-f6fef44f1e11487e8aec68123042cf03) by alexxx_xarchenko (https://sketchfab.com/alexxx_xarchenko) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

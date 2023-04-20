@@ -23,11 +23,14 @@
             <a-asset-item id="mars" src="/models/mars/scene.gltf"></a-asset-item>
             <a-asset-item id="campfire" src="/models/campfire/scene.gltf"></a-asset-item>
             <a-asset-item id="tent" src="/models/tent/scene.gltf"></a-asset-item>
+            <a-asset-item id="rock" src="/models/rock/scene.gltf"></a-asset-item>
+            <a-asset-item id="wallE" src="/models/wallE/scene.gltf"></a-asset-item>
             <audio id="lionMeow" src="sound/cat-purring-and-meow-5928.mp3"></audio>
             <audio id="ramSound" src="sound\sheep-122256.mp3"></audio>
             <audio id="crabSound" src="sound\mrKrabsLaugh.MP3"></audio>
             <audio id="taurusSound" src="sound\bull(fromnoisetosound.com).mp3"></audio>
             <audio id="scorpionSound" src="sound\Get over here Sound Effect.mp3"></audio>
+            <audio id="wallEsound" src="sound\wallEsound.MP3"></audio>
         </assets>
 
         <!--Camera and Cursor-->
@@ -41,9 +44,9 @@
 
         <!--Background Music-->
 
-        <!-- <a-entity position="0 30 0">
+        <a-entity position="0 30 0">
             <a-sound src="sound\01. Timber Hearth.mp3" autoplay="true" loop="true" volume="0.2"></a-sound>
-        </a-entity> -->
+        </a-entity>
 
         <!--Starting Point in Mars Ground-->
 
@@ -53,14 +56,26 @@
 
         <!--Campfire for Decoration and Scenery Setting-->
 
-        <a-entity position="46.280 -3.2 30.234">
-            <a-entity gltf-model="#campfire" scale="2 2 2"></a-entity>
+        <a-entity position="46.280 -3.2 30.234" gltf-model="#campfire" scale="2 2 2" rotation="0 45 0">
+            <a-sound src="sound\campfire-1.mp3" autoplay="true" loop="true" volume="0.45"></a-sound>
         </a-entity>
 
         <!--Tent-->
 
         <a-entity position="53.43636 -0.8 16.52108" rotation="0 180 0">
             <a-entity gltf-model="/models/tent/scene.gltf" scale="4 4 4"></a-entity>
+        </a-entity>
+
+        <!--Rock Sign-->
+
+        <a-entity position="-8.77092 -0.8 0.32367" gltf-model="/models/rock/scene.gltf" scale="2 2 2"
+            rotation="-47.88 0 0"></a-entity>
+
+        <!--Wall-E-->
+
+        <a-entity class="clickable" id="wallEevent" position="7 -1.6 30" rotation="0 60 0"
+            gltf-model="/models/wallE/scene.gltf" scale="0.8 0.8 0.8"
+            sound="src: sound\wallEsound.MP3; volume: 0.5"></a-entity>
         </a-entity>
 
         <!--SpaceShip for Decoration-->
@@ -75,11 +90,12 @@
         <a-entity position="-85.34344 25.61791 5.07036" id="ramEvent" class="clickable"
             gltf-model="/models/ram/scene.gltf" scale="40 40 40" visible="false"
             sound="src: sound\sheep-122256.mp3; volume: 9" rotation="0 90 0">
+            <a-light color="white" type="point" position="-100 1000 100" intensity="1.5" light="intensity: 5"></a-light>
         </a-entity>
 
         <!--Aries Constellation-->
 
-        <a-entity event-set__enter="[object Object]" class="clickable" id="ariesConstellation" visible="">
+        <a-entity class="clickable" id="ariesConstellation" visible="">
             <a-sphere scale="0.5 0.5 0.5" material="emissive: #fff; emissiveIntensity: 10" geometry=""
                 position="-75 36.03295 14.93492"></a-sphere>
 
@@ -290,8 +306,14 @@
                 material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-cylinder>
         </a-entity>
 
-        <a-light color="white" type="point" position="0 10 0" intensity="3"></a-light>
+        <!--Ambient Light-->
 
+        <a-light color="white" type="point" position="0 10 0" intensity="2.7"></a-light>
+
+        <!--Credits Text-->
+
+        <a-entity text="value: <ZooDiac> Vasco Lima Tiago Teixeira; color: black; wrapCount: 13; lineHeight: 100"
+            rotation="0 90 0" position="-7.99434 0 -0.04914" scale="2 2 2"></a-entity>
 
         <!-- Space Rotation -->
         <a-sky rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; easing: linear; dur: 500000"
@@ -300,6 +322,6 @@
     </a-scene>
 
 </body>
-<script src="animalSounds.js"></script>
+<script src="index.js"></script>
 
 </html>

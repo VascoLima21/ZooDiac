@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
+    <title>Space</title>
+</head>
+
+<body>
+    <a-scene>
+        <assets>
+            <img id="sky" src="/img/sky.jpg">
+            <a-asset-item id="lion" src="/models/lion/scene.gltf"></a-asset-item>
+            <a-asset-item id="ram" src="/models/ram/scene.gltf"></a-asset-item>
+            <a-asset-item id="crab" src="/models/crab/scene.gltf"></a-asset-item>
+            <a-asset-item id="scorpion" src="/models/scorpion/scene.gltf"></a-asset-item>
+            <a-asset-item id="bull" src="/models/bull/scene.gltf"></a-asset-item>
+            <a-asset-item id="ship" src="/models/spaceShip/scene.gltf"></a-asset-item>
+            <a-asset-item id="mars" src="/models/mars/scene.gltf"></a-asset-item>
+            <a-asset-item id="campfire" src="/models/campfire/scene.gltf"></a-asset-item>
+            <a-asset-item id="tent" src="/models/tent/scene.gltf"></a-asset-item>
+            <a-asset-item id="wallE" src="/models/wallE/scene.gltf"></a-asset-item>
+            <audio id="lionMeow" src="sound/cat-purring-and-meow-5928.mp3"></audio>
+            <audio id="ramSound" src="sound\sheep-122256.mp3"></audio>
+            <audio id="crabSound" src="sound\mrKrabsLaugh.MP3"></audio>
+            <audio id="taurusSound" src="sound\bull(fromnoisetosound.com).mp3"></audio>
+            <audio id="scorpionSound" src="sound\Get over here Sound Effect.mp3"></audio>
+            <audio id="wallEsound" src="sound\wallEsound.MP3"></audio>
+        </assets>
+
+        <!--Camera and Cursor-->
+        <a-entity position="0 1 0" camera="" cursor="fuse: true; fuseTimeout: 3000;" wasd-controls="acceleration: 30"
+            look-controls="" rotation="" data-aframe-inspector-original-camera="">
+            <a-cursor position="0 0 -0.03" scale="0.02 0.02 1" material="color:white"
+                raycaster="far: 5; objects: .clickable">
+            </a-cursor>
+        </a-entity>
+        <!--fuse="true" fusetimeout="2000" faz com que após 2 segundos a olhar para um objeto simula o click-->
+
+        <!--Background Music-->
+
+        <a-entity position="0 30 0">
+            <!-- <a-sound src="sound\01. Timber Hearth.mp3" autoplay="true" loop="true" volume="0.2"></a-sound> -->
+        </a-entity>
+
+        <!--Starting Point in Mars Ground-->
+
+        <a-entity position="0 0 0">
+            <a-entity gltf-model="#mars" scale="2 2 2"></a-entity>
+        </a-entity>
+
+        <!--Campfire for Decoration and Scenery Setting-->
+
+        <a-entity position="46.280 -3.2 30.234" gltf-model="#campfire" scale="2 2 2" rotation="0 45 0">
+            <a-sound src="sound\campfire-1.mp3" autoplay="true" loop="true" volume="0.45"></a-sound>
+        </a-entity>
+
+        <!--Tent-->
+
+        <a-entity position="53.43636 -0.8 16.52108" rotation="0 180 0">
+            <a-entity gltf-model="/models/tent/scene.gltf" scale="4 4 4"></a-entity>
+        </a-entity>
+
+        <!--Wall-E-->
+
+        <a-entity class="clickable" id="wallEevent" position="7 -1.6 30" rotation="0 60 0"
+            gltf-model="/models/wallE/scene.gltf" scale="0.8 0.8 0.8"
+            sound="src: sound\wallEsound.MP3; volume: 0.5"></a-entity>
+        </a-entity>
+
+        <!--SpaceShip for Decoration-->
+
+        <a-entity position="23.69001 -2.53013 36.58405" rotation="0 -130 0">
+            <a-light type="point" position="-2.817 13.239 -0.123" light=""></a-light>
+            <a-entity gltf-model="/models/spaceShip/scene.gltf" scale="2.3 2.3 2.3" rotation="0 -128.4 0"></a-entity>
+        </a-entity>
+
+        <!--Aries/Ram-->
+
+        <a-entity position="-85.34344 25.61791 5.07036" id="ramEvent" class="clickable"
+            gltf-model="/models/ram/scene.gltf" scale="40 40 40" visible="false"
+            sound="src: sound\sheep-122256.mp3; volume: 9" rotation="0 90 0">
+            <a-light color="white" type="point" position="-100 1000 100" intensity="1.5" light="intensity: 5"></a-light>
+        </a-entity>
+
+        <!--Aries Constellation-->
+
+        <a-entity class="clickable" id="ariesConstellation" visible="">
+            <a-sphere scale="0.5 0.5 0.5" material="emissive: #fff; emissiveIntensity: 10" geometry=""
+                position="-75 36.03295 14.93492"></a-sphere>
+
+            <a-sphere scale="0.5 0.5 0.5" material="emissive: #fff; emissiveIntensity: 10" geometry=""
+                position="-75 23.01791 -2.65751"></a-sphere>
+            <a-sphere scale="0.5 0.5 0.5" material="emissive: #fff; emissiveIntensity: 10" geometry=""
+                position="-75 16.92241 -4.2732"></a-sphere>
+            <a-sphere scale="0.5 0.5 0.5" material="emissive: #fff; emissiveIntensity: 10" geometry=""
+                position="-75 13.78236 -2.94835"></a-sphere>
+            <a-cylinder scale="0.1 3.54 0.1" material="emissive: #fff; emissiveIntensity: 10" geometry=""
+                position="-75 15.05272 -3.45803" rotation="-21.82 0 0"></a-cylinder>
+
+            <a-cylinder scale="0.1 6.62 0.1" material="emissive: #fff; emissiveIntensity: 10" geometry=""
+                position="-75 19.84238 -3.56031" rotation="14.030000000000001 0 0"></a-cylinder>
+            <a-cylinder scale="0.1 21.38 0.1" material="emissive: #fff; emissiveIntensity: 10" geometry=""
+                position="-75 29.50842 6.11683" rotation="53.7 0 0"></a-cylinder>
+        </a-entity>
+
+        <!--Scorpius/Scorpion-->
+
+        <a-entity position="32.70144 20.57451 -60.58601" id="scorpiusEvent" class="clickable"
+            gltf-model="/models/scorpion/scene.gltf" scale="0.02 0.02 0.02" visible="false"
+            sound="src: sound\Get over here Sound Effect.mp3; volume: 7">
+        </a-entity>
+
+        <!--Scorpius Constellation-->
+
+        <a-entity fuse="" class="clickable" id="scorpiusConstellation" visible="">
+            <a-sphere scale="0.5 0.5 0.5" position="24.21919 20.48259 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere>
+            <a-sphere scale="0.5 0.5 0.5" position="20.71197 19.96449 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere>
+            <a-sphere scale="0.5 0.5 0.5" position="17.51119 16.21291 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere>
+            <a-sphere scale="0.5 0.5 0.5" position="22.77253 13.4974 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere>
+            <a-sphere scale="0.5 0.5 0.5" position="28.67511 15.09279 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere>
+            <a-sphere scale="0.5 0.5 0.5" position="32.40731 16.25231 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere>
+            <a-sphere scale="0.5 0.5 0.5" position="30.41738 26.00536 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere>
+            <a-sphere scale="0.5 0.5 0.5" position="33.39122 32.93888 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere>
+            <a-sphere scale="0.5 0.5 0.5" position="36.42772 35.10616 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere>
+            <a-sphere scale="0.5 0.5 0.5" position="38.25376 40.23107 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere>
+            <a-sphere scale="0.5 0.5 0.5" position="40.46076 37.35728 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere>
+            <a-sphere scale="0.5 0.5 0.5" position="40.92625 33.86044 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere>
+            <a-cylinder scale="0.1 3.01 0.1" position="40.75325 35.60454 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry="" rotation="0 0 5.61"></a-cylinder>
+            <a-cylinder scale="0.1 4.37 0.1" position="38.5603 36.24708 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""
+                rotation="0 0 -58.99000000000001"></a-cylinder>
+            <a-cylinder scale="0.1 3.19 0.1" position="39.54346 38.7318 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry="" rotation="0 0 39.61"></a-cylinder>
+            <a-cylinder scale="0.1 3.63 0.1" position="34.94824 34.01774 -60.04787"
+                material="emissive: #fff; emissiveIntensity: 10" geometry="" rotation="0 0 -52.91"></a-cylinder>
+            <a-cylinder scale="0.1 7.81 0.1" position="31.94459 29.5156 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry="" rotation="0 0 -22.76"></a-cylinder>
+            <a-cylinder scale="0.1 8.34 0.1" position="27.06135 22.9479 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry="" rotation="0 0 -47.71"></a-cylinder>
+            <a-cylinder scale="0.1 3.4 0.1" position="22.8113 20.19426 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry="" rotation="0 0 96.5"></a-cylinder>
+            <a-cylinder scale="0.1 5 0.1" position="19.02516 18.07796 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry="" rotation="0 0 -39.45"></a-cylinder>
+            <a-cylinder scale="0.1 6.06 0.1" position="20.50191 14.61812 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry="" rotation="0 0 62.81"></a-cylinder>
+            <a-cylinder scale="0.1 6.21 0.1" position="25.66752 14.28099 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry="" rotation="0 0 106.23"></a-cylinder>
+            <a-cylinder scale="0.1 3.94 0.1" position="30.11507 15.58132 -59.97924"
+                material="emissive: #fff; emissiveIntensity: 10" geometry="" rotation="0 0.83 105.73"></a-cylinder>
+        </a-entity>
+
+        <!--Cancer/Crab-->
+
+        <a-entity position="-34.04895 13.70578 -60.3801" id="cancerEvent" class="clickable"
+            gltf-model="/models/crab/scene.gltf" scale="0.05 0.05 0.05" visible="false"
+            sound="src: sound\mrKrabsLaugh.MP3; volume: 14">
+        </a-entity>
+
+        <!--Cancer Constellation-->
+
+        <a-entity class="clickable" id="cancerConstellation" visible="">
+            <a-sphere scale="0.5 0.5 0.5" position="-40.38166 14.74812 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere>
+            <a-sphere scale="0.5 0.5 0.5" position="-34.96125 20.92609 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere><a-sphere scale="0.5 0.5 0.5"
+                position="-26.10019 12.75913 -59.92891" material="emissive: #fff; emissiveIntensity: 10"
+                geometry=""></a-sphere><a-sphere scale="0.5 0.5 0.5" position="-34.96125 20.92609 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere>
+
+
+            <a-sphere scale="0.5 0.5 0.5" position="-32.7702 24.12756 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry="" rotation="0 0 -9.34"></a-sphere>
+            <a-sphere scale="0.5 0.5 0.5" position="-33.74993 32.97212 -60"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere>
+            <a-cylinder scale="0.1 8.81 0.1" position="-33.24934 28.492 -59.9"
+                material="emissive: #fff; emissiveIntensity: 10" geometry="" rotation="0 0 5.88"></a-cylinder>
+            <a-cylinder scale="0.1 3.75 0.1" position="-33.808 22.575 -59.874"
+                material="emissive: #fff; emissiveIntensity: 10" geometry="" rotation="0 0 -35.2"></a-cylinder>
+            <a-cylinder scale="0.1 8.27 0.1" position="-37.808 17.783 -60.069"
+                material="emissive: #fff; emissiveIntensity: 10" geometry="" rotation="0 0 -40.15"></a-cylinder>
+
+            <a-cylinder scale="0.1 12.15 0.1" position="-30.49198 16.72684 -59.84395"
+                material="emissive: #fff; emissiveIntensity: 10" geometry="" rotation="0 0 47.29"></a-cylinder>
+        </a-entity>
+
+        <!--Leo/Lion-->
+        <a-entity class="clickable" position="-25.05064 10 65.92585" id="lionEvent" gltf-model="/models/lion/scene.gltf"
+            scale="0.5 0.5 0.5" visible="false" sound="src: sound\cat-purring-and-meow-5928.mp3; volume: 15"
+            rotation="0 140 0">
+
+        </a-entity>
+
+        <!--Leo Constellation-->
+
+        <a-entity class="clickable" id="lionConstellation" visible="">
+            <a-sphere scale="0.5 0.5 0.5" position="0 15.399 55" material="emissive: #fff; emissiveIntensity: 10"
+                geometry=""></a-sphere>
+            <a-sphere scale="0.5 0.5 0.5" position="-11.284 21.61 55" material="emissive: #fff; emissiveIntensity: 10"
+                geometry=""></a-sphere>
+            <a-sphere scale="0.5 0.5 0.5" position="-28.24 20.922 55" material="emissive: #fff; emissiveIntensity: 10"
+                geometry=""></a-sphere>
+            <a-sphere scale="0.5 0.5 0.5" position="-40.358 31.55 55" material="emissive: #fff; emissiveIntensity: 10"
+                geometry=""></a-sphere>
+            <a-sphere scale="0.5 0.5 0.5" position="-25.877 30.823 55" material="emissive: #fff; emissiveIntensity: 10"
+                geometry=""></a-sphere>
+            <a-sphere scale="0.5 0.5 0.5" position="-22.98 24.434 55" material="emissive: #fff; emissiveIntensity: 10"
+                geometry=""></a-sphere>
+            <a-sphere scale="0.5 0.5 0.5" position="-34.41 37.497 55" material="emissive: #fff; emissiveIntensity: 10"
+                geometry=""></a-sphere>
+            <a-sphere scale="0.5 0.5 0.5" position="-12.705 16.508 55" material="emissive: #fff; emissiveIntensity: 10"
+                geometry=""></a-sphere>
+            <a-sphere scale="0.5 0.5 0.5" position="-29.909 14.547 55" material="emissive: #fff; emissiveIntensity: 10"
+                geometry=""></a-sphere>
+            <a-cylinder geometry="" rotation="0 0 85.44" scale="0.1 12.43 0.1" position="-6.36779 15.91023 55"
+                material="emissive: #fff"></a-cylinder>
+            <a-cylinder rotation="0 0 59.88" scale="0.1 12.81 0.1" material="emissive: #fff; emissiveIntensity: 10"
+                geometry="" position="-5.95259 18.56691 55"></a-cylinder>
+            <a-cylinder rotation="0 0 76.8" scale="0.1 12.39 0.1" material="emissive: #fff; emissiveIntensity: 10"
+                geometry="" position="-17.13228 23.06811 55"></a-cylinder>
+            <a-cylinder rotation="0 0 96.7" scale="0.1 17.58 0.1" material="emissive: #fff; emissiveIntensity: 10"
+                geometry="" position="-21.26821 15.49683 55"></a-cylinder>
+            <a-cylinder rotation="0 0 24.48" scale="0.1 7.89 0.1" material="emissive: #fff; emissiveIntensity: 10"
+                geometry="" position="-24.44414 27.65137 55"></a-cylinder>
+            <a-cylinder rotation="0 0 -14.27" scale="0.1 6.8 0.1" material="emissive: #fff; emissiveIntensity: 10"
+                geometry="" position="-29.08526 17.56852 55"></a-cylinder>
+            <a-cylinder rotation="0 0 124.73" scale="0.1 6.61 0.1" material="emissive: #fff; emissiveIntensity: 10"
+                geometry="" position="-25.53504 22.72681 55"></a-cylinder>
+            <a-cylinder rotation="0 0 52.06000000000001" scale="0.1 10.2 0.1"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""
+                position="-30.33391 34.31147 55"></a-cylinder>
+            <a-cylinder rotation="0 0 134.8" scale="0.1 8.01 0.1" material="emissive: #fff; emissiveIntensity: 10"
+                geometry="" position="-37.14149 34.69485 55"></a-cylinder>
+        </a-entity>
+
+        <!--Taurus/Bull-->
+
+        <a-entity id="taurusEvent" position="74.6643 31.5587 2.2845" class="clickable"
+            gltf-model="/models/bull/scene.gltf" scale="12 12 12" visible="false"
+            sound="src: sound\Red Bull Gives You Wiings - Drink ! Notification.mp3; volume:4">
+        </a-entity>
+
+        <!--Taurus Constellation-->
+
+        <a-entity class="clickable" id="taurusConstellation" visible="">
+            <a-sphere position="75 21.96367 12.4128" scale="0.5 0.5 0.5"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere>
+            <a-sphere position="75 23.94305 11.26556" scale="0.5 0.5 0.5"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere>
+            <a-sphere position="75 27.64133 5.15081" scale="0.5 0.5 0.5"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere>
+            <a-sphere position="75 30.54879 3.52104" scale="0.5 0.5 0.5"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere>
+            <a-sphere position="75 31.8959 2.26502" scale="0.5 0.5 0.5" material="emissive: #fff; emissiveIntensity: 10"
+                geometry=""></a-sphere>
+            <a-sphere position="75 33.42627 1.11155" scale="0.5 0.5 0.5"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere>
+            <a-sphere position="75 42.35269 -5.19391" scale="0.5 0.5 0.5"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere>
+            <a-sphere position="75 33.01931 4.05165" scale="0.5 0.5 0.5"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere>
+            <a-sphere position="75 36.15436 3.34079" scale="0.5 0.5 0.5"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-sphere>
+            <a-sphere position="75 44.78748 0" scale="0.5 0.5 0.5" material="emissive: #fff; emissiveIntensity: 10"
+                geometry=""></a-sphere>
+            <a-cylinder rotation="0 90 121.04" scale="0.1 7.62 0.1" position="75 25.83365 8.11202"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-cylinder>
+            <a-cylinder rotation="0 90 150.87" scale="0.1 3.2 0.1" position="75 28.95082 4.45942"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-cylinder>
+            <a-cylinder rotation="0 90 167.68" scale="0.1 3.18 0.1" position="75 34.74019 3.67865"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-cylinder>
+            <a-cylinder rotation="0 90 145.17" scale="0.1 10.69 0.1" position="75 37.83004 -2.02115"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-cylinder>
+            <a-cylinder rotation="0 90 11.91" scale="0.1 2.61 0.1" position="75 31.74852 3.77293"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-cylinder>
+            <a-cylinder rotation="0 90 132.18" scale="0.1 1.97 0.1" position="75 31.45379 2.61562"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-cylinder>
+            <a-cylinder rotation="0 90 138.5" scale="0.1 2.08 0.1" position="75.16391 32.72054 1.64785"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-cylinder>
+            <a-cylinder rotation="0 90 158.55" scale="0.1 9.57 0.1" position="75 40.35738 1.73535"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-cylinder>
+            <a-cylinder rotation="0 90 -30.120000000000005" scale="0.1 2.24 0.1" position="75.01441 23.18393 11.71515"
+                material="emissive: #fff; emissiveIntensity: 10" geometry=""></a-cylinder>
+        </a-entity>
+
+        <!--Ambient Light-->
+
+        <a-light color="white" type="point" position="0 10 0" intensity="2.7"></a-light>
+
+        <!-- Space Rotation -->
+        <a-sky rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; easing: linear; dur: 500000"
+            src="#sky"></a-sky>
+
+    </a-scene>
+
+</body>
+<script src="index.js"></script>
+
+</html>
